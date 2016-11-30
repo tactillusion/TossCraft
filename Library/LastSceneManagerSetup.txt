@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/TossCraft/Scene/Prototype_TossCraft.unity
+  isLoaded: 1
+  isActive: 1

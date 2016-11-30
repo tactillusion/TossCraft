@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{19C5FBC9-A626-4DFB-AF08-CABDE5678AF0}") = "TossCraft", "Assembly-CSharp.csproj", "{2B0A078A-7410-4C72-DDA6-2C123491CBFF}"
+EndProject
+Project("{19C5FBC9-A626-4DFB-AF08-CABDE5678AF0}") = "TossCraft", "Assembly-CSharp-Editor.csproj", "{91470656-8AB7-4999-CD9E-8FE1C6044227}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B0A078A-7410-4C72-DDA6-2C123491CBFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0A078A-7410-4C72-DDA6-2C123491CBFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0A078A-7410-4C72-DDA6-2C123491CBFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0A078A-7410-4C72-DDA6-2C123491CBFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91470656-8AB7-4999-CD9E-8FE1C6044227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91470656-8AB7-4999-CD9E-8FE1C6044227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91470656-8AB7-4999-CD9E-8FE1C6044227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91470656-8AB7-4999-CD9E-8FE1C6044227}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
