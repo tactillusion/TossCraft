@@ -125,7 +125,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
- <HintPath>C:/Users/mkohn/Documents/TossCraft/Assets/TossCraft/Plugins/LeapCSharp.NET3.5.dll</HintPath>
+ <HintPath>C:/Users/mkohn/Desktop/TossCraft/Assets/TossCraft/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
