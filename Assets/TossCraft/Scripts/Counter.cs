@@ -34,9 +34,9 @@ namespace CustomUtils
 		float timer;
 		float preTimer;
 
-		EndTimer _endTimerFunction;
-		EndEverySeconds _endEverySeconds;
-		UpdatingPercentage _updating;
+		EndTimer endTimerFunction;
+		EndEverySeconds endEverySeconds;
+		UpdatingPercentage updating;
 
 		void Start()
 		{
@@ -51,17 +51,17 @@ namespace CustomUtils
 
 				timer -= Time.fixedDeltaTime * step;
 
-				if (_updating != null)
+				if (updating != null)
 				{
-					_updating(1 - timer * 1.0f / maxTimer);
+					updating(1 - timer * 1.0f / maxTimer);
 				}
 
 				if (Mathf.Abs(timer - preTimer) >= 1)
 				{
 					preTimer = timer;
-					if (_endEverySeconds != null)
+					if (endEverySeconds != null)
 					{
-						_endEverySeconds(Mathf.RoundToInt(preTimer));
+						endEverySeconds(Mathf.RoundToInt(preTimer));
 					}
 				}
 
@@ -70,9 +70,9 @@ namespace CustomUtils
 					timer = maxTimer;
 					currentState = CounterState.STOP;
 
-					if (_endTimerFunction != null)
+					if (endTimerFunction != null)
 					{
-						_endTimerFunction();
+						endTimerFunction();
 					}
 				}
 				break;
@@ -89,9 +89,9 @@ namespace CustomUtils
 
 			step = 1;
 			timer = maxTimer = _maxTimer;
-			_endTimerFunction = endFunc;
-			_endEverySeconds = null;
-			_updating = null;
+			endTimerFunction = endFunc;
+			endEverySeconds = null;
+			updating = null;
 			currentState = CounterState.RUN;
 
 		}
@@ -101,9 +101,9 @@ namespace CustomUtils
 
 			step = 1;
 			timer = maxTimer = _maxTimer;
-			_endTimerFunction = endFunc;
-			_endEverySeconds = endSecs;
-			_updating = null;
+			endTimerFunction = endFunc;
+			endEverySeconds = endSecs;
+			updating = null;
 			currentState = CounterState.RUN;
 
 		}
@@ -113,9 +113,9 @@ namespace CustomUtils
 
 			step = 1;
 			timer = maxTimer = _maxTimer;
-			_endTimerFunction = endFunc;
-			_endEverySeconds = null;
-			_updating = updatingFunc;
+			endTimerFunction = endFunc;
+			endEverySeconds = null;
+			updating = updatingFunc;
 			currentState = CounterState.RUN;
 
 		}
@@ -123,8 +123,8 @@ namespace CustomUtils
 		public void StopTimer()
 		{
 			currentState = CounterState.STOP;
-			_endTimerFunction = null;
-			_endEverySeconds = null;
+			endTimerFunction = null;
+			endEverySeconds = null;
 			//      Debug.Log ("stop timer ");
 
 		}

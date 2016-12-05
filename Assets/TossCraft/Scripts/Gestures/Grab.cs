@@ -5,7 +5,7 @@ using Leap.Unity;
 
 namespace TossCraft
 {
-	public class GrabHand : BehaviorHand
+	public class Grab : Gesture
 	{
 	
 		public GameObject CurrentHoldingObj;
@@ -15,7 +15,7 @@ namespace TossCraft
 
 		void Start ()
 		{
-			_currentType = GestureManager.GestureTypes.Grab;
+			currentType = GestureManager.GestureTypes.Grab;
 			specificEvent = grabBall;
 			_savedBallPosition = CurrentHoldingObj.transform.position;
 		}
@@ -74,7 +74,5 @@ namespace TossCraft
 					releaseBall ();
 			}
 		}
-
-
 	}
 }

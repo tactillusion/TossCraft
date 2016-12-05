@@ -5,14 +5,14 @@ using Leap.Unity;
 
 namespace TossCraft
 {
-	public class ThrowHand : BehaviorHand
+	public class Throw : Gesture
 	{
 		public GameObject prefabBall;
 		public float forceToAdd = 400;
 
 		void Start ()
 		{
-			_currentType = GestureManager.GestureTypes.Throw;
+			currentType = GestureManager.GestureTypes.Throw;
 			specificEvent = throwBall;
 		}
 	

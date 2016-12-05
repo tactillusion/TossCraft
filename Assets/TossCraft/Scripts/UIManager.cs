@@ -14,16 +14,16 @@ namespace TossCraft
 		public Transform ListGesturePivot;
 		public GameObject prefabSliderUI;
 
-		GameManager _gameManager;
-		Counter _countDownSlider;
+		GameManager gameManager;
+		Counter countDownSlider;
 
-		Dictionary<GestureManager.GestureTypes, Slider> _listSliders;
+		Dictionary<GestureManager.GestureTypes, Slider> listSliders;
 
-		GameManager.EndEvent _endEventCountDown;
+		GameManager.EndEvent endEventCountDown;
 
 		void Start ()
 		{
-			_countDownSlider = GetComponent<Counter> ();
+			countDownSlider = GetComponent<Counter> ();
 		}
 	
 		void Update ()
@@ -33,20 +33,20 @@ namespace TossCraft
 			
 		public bool IsReady ()
 		{
-			return _countDownSlider.CurrentState == Counter.CounterState.STOP;
+			return countDownSlider.CurrentState == Counter.CounterState.STOP;
 		}
 
 		public void RegisterEventEndCountDown (GameManager.EndEvent end)
 		{
-			_endEventCountDown = end;
+			endEventCountDown = end;
 		}
 
 		public void InitUI (GameManager manager)
 		{
-			_gameManager = manager;
+			gameManager = manager;
 
-			Dictionary<GestureManager.GestureTypes, object> listActiveGestures = _gameManager.GetCurrentActiveGestures ();
-			_listSliders = new Dictionary<GestureManager.GestureTypes, Slider> ();
+			Dictionary<GestureManager.GestureTypes, object> listActiveGestures = gameManager.GetCurrentActiveGestures ();
+			listSliders = new Dictionary<GestureManager.GestureTypes, Slider> ();
 			foreach (KeyValuePair<GestureManager.GestureTypes, object> gesture in listActiveGestures) {
 				GameObject go = GameObject.Instantiate (prefabSliderUI);
 				go.transform.SetParent (ListGesturePivot);
@@ -55,7 +55,7 @@ namespace TossCraft
 				go.name = gesture.Key.ToString ();
 				go.GetComponentInChildren<Text> ().text = go.name;
 
-				_listSliders.Add (gesture.Key, go.GetComponentInChildren<Slider> ());
+				listSliders.Add (gesture.Key, go.GetComponentInChildren<Slider> ());
 			}
 		}
 
@@ -70,12 +70,12 @@ namespace TossCraft
 		{
 			Slider currentSlider = GetSliderBasedType (type);
 
-			_countDownSlider.StartTimerUpdatePercentage (timer, () => {
+			countDownSlider.StartTimerUpdatePercentage (timer, () => {
 				currentSlider.value = 0;
 				currentSlider.image.color = Color.green;
 
-				if (_endEventCountDown != null)
-					_endEventCountDown (type);
+				if (endEventCountDown != null)
+					endEventCountDown (type);
 			
 			}, (float percent) => {
 				currentSlider.image.color = Color.red;
@@ -88,10 +88,10 @@ namespace TossCraft
 			
 		Slider GetSliderBasedType (GestureManager.GestureTypes type)
 		{
-			if (_listSliders.ContainsKey (type)) {
-				return _listSliders [type];
+			if (listSliders.ContainsKey (type)) {
+				return listSliders [type];
 			}
-			return _listSliders [0];
+			return listSliders [0];
 		}
 	}
 }

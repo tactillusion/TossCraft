@@ -9,34 +9,34 @@ using System;
 namespace TossCraft
 {
 	[RequireComponent (typeof(Counter))]
-	public class BehaviorHand : MonoBehaviour
+	public class Gesture : MonoBehaviour
 	{
 
-		GestureManager _gestureManager;
-		bool _isBlock;
+		GestureManager gestureManager;
+		bool isBlock;
 
 		public void UnBlockGesture ()
 		{
-			_isBlock = false;
+			isBlock = false;
 		}
 
-		protected GestureManager.GestureTypes _currentType;
+		protected GestureManager.GestureTypes currentType;
 
-		protected Counter _counterLoading;
-		List<Hand> _listHands;
+		protected Counter counterLoading;
+		List<Hand> listHands;
 
 		protected Hand GetCurrent1Hand ()
 		{
-			if (_listHands.Count == 1)
-				return _listHands [0];
+			if (listHands.Count == 1)
+				return listHands [0];
 			else
 				return null;
 		}
 
 		protected List<Hand> GetCurrent2Hands ()
 		{
-			if (_listHands.Count == 2)
-				return _listHands;
+			if (listHands.Count == 2)
+				return listHands;
 			else
 				return null;
 		}
@@ -67,8 +67,8 @@ namespace TossCraft
 
 		void Awake ()
 		{
-			_counterLoading = GetComponent<Counter> ();
-			_isBlock = false;
+			counterLoading = GetComponent<Counter> ();
+			isBlock = false;
 		}
 		protected void FixedUpdate ()
 		{
@@ -78,27 +78,27 @@ namespace TossCraft
 
 		public void Init (GestureManager manager)
 		{
-			_gestureManager = manager;
+			gestureManager = manager;
 		}
 
 		void updateHands ()
 		{
-			Frame frame = _gestureManager.GetLeapHand ().CurrentFrame;
-			_listHands = frame.Hands;
-			if (!_isBlock) {
-				if (_listHands.Count > 0) {
+			Frame frame = gestureManager.GetLeapHand ().CurrentFrame;
+			listHands = frame.Hands;
+			if (!isBlock) {
+				if (listHands.Count > 0) {
 					if (checkConditionGesture ()) {
-						if (_counterLoading.CurrentState == Counter.CounterState.STOP) {
-							_counterLoading.StartTimerUpdatePercentage (CheckingTimeBeforeToggle, () => {
+						if (counterLoading.CurrentState == Counter.CounterState.STOP) {
+							counterLoading.StartTimerUpdatePercentage (CheckingTimeBeforeToggle, () => {
 								callEvent ();
 							}, (float percent) => {
 								if (CheckingTimeBeforeToggle != 0)
-									_gestureManager.LoadingGestureProgress (_currentType, percent);
+									gestureManager.LoadingGestureProgress (currentType, percent);
 							});
 						}
 					} else {
-						_counterLoading.StopTimer ();
-						_gestureManager.LoadingGestureProgress (_currentType, 0);
+						counterLoading.StopTimer ();
+						gestureManager.LoadingGestureProgress (currentType, 0);
 					}
 				}
 			}
@@ -113,9 +113,9 @@ namespace TossCraft
 
 		protected void callEvent ()
 		{
-			bool eventSuccess = _gestureManager.ReceiveEvent (_currentType);
+			bool eventSuccess = gestureManager.ReceiveEvent (currentType);
 			if (eventSuccess) {
-				_isBlock = true;
+				isBlock = true;
 				if (specificEvent != null)
 					specificEvent ();
 			}
@@ -258,8 +258,8 @@ namespace TossCraft
 
 		void updateDebug ()
 		{
-			if (_listHands.Count > 0 && _listHands.Count <= 2) {
-				foreach (Hand hand in _listHands) {
+			if (listHands.Count > 0 && listHands.Count <= 2) {
+				foreach (Hand hand in listHands) {
 					Debug.DrawRay (UnityVectorExtension.ToVector3 (hand.PalmPosition), UnityVectorExtension.ToVector3 (hand.PalmNormal) * 10, Color.green);
 					if (!isStationary (hand)) {
 						Debug.DrawRay (UnityVectorExtension.ToVector3 (hand.PalmPosition), UnityVectorExtension.ToVector3 (hand.PalmVelocity) * 10, Color.blue);

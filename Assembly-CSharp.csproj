@@ -102,12 +102,12 @@
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\VR\VRHeightOffset.cs" />
-     <Compile Include="Assets\TossCraft\Scripts\BehaviorHand.cs" />
      <Compile Include="Assets\TossCraft\Scripts\Counter.cs" />
      <Compile Include="Assets\TossCraft\Scripts\GameManager.cs" />
+     <Compile Include="Assets\TossCraft\Scripts\Gesture.cs" />
      <Compile Include="Assets\TossCraft\Scripts\GestureManager.cs" />
-     <Compile Include="Assets\TossCraft\Scripts\Gestures\GrabHand.cs" />
-     <Compile Include="Assets\TossCraft\Scripts\Gestures\ThrowHand.cs" />
+     <Compile Include="Assets\TossCraft\Scripts\Gestures\Grab.cs" />
+     <Compile Include="Assets\TossCraft\Scripts\Gestures\Throw.cs" />
      <Compile Include="Assets\TossCraft\Scripts\UIManager.cs" />
      <None Include="Assets\TossCraft\Plugins\donotdelete.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\LeapCG.cginc" />

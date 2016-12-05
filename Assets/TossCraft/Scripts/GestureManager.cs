@@ -59,12 +59,12 @@ namespace TossCraft
 			
 			_listActiveGestures = new Dictionary<GestureTypes, object> ();
 			foreach (Transform t in transform) {
-				if (t.GetComponent<BehaviorHand> () != null) {
+				if (t.GetComponent<Gesture> () != null) {
 					foreach (GestureTypes type in Enum.GetValues(typeof(GestureTypes))) {
 						if (t.name.Equals (type.ToString ()))
-							_listActiveGestures.Add (type, t.GetComponent<BehaviorHand> () as object);
+							_listActiveGestures.Add (type, t.GetComponent<Gesture> () as object);
 					}
-					t.GetComponent<BehaviorHand> ().Init (this);
+					t.GetComponent<Gesture> ().Init (this);
 				}
 			}
 
@@ -82,7 +82,7 @@ namespace TossCraft
 
 		void UnBlockGesture (GestureTypes type)
 		{
-			BehaviorHand behavior = (BehaviorHand)_listActiveGestures [type];
+			Gesture behavior = (Gesture)_listActiveGestures [type];
 			behavior.UnBlockGesture ();
 		}
 
