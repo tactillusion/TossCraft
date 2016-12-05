@@ -10,31 +10,26 @@ namespace TossCraft
 	
 		public GameObject CurrentHoldingObj;
 
-		Vector3 _savedBallPosition;
-		bool _isHoldingBall = false;
+		Vector3 savedBallPosition;
+		bool isHoldingBall = false;
 
-		void Start ()
-		{
+		void Start () {
 			currentType = GestureManager.GestureTypes.Grab;
 			specificEvent = grabBall;
-			_savedBallPosition = CurrentHoldingObj.transform.position;
+			savedBallPosition = CurrentHoldingObj.transform.position;
 		}
 	
-		void Update ()
-		{
-		}
+		void Update () {}
 
-		protected void FixedUpdate ()
-		{
+		protected new void FixedUpdate () {
 			base.FixedUpdate ();
 			updateBall ();
 		}
 
-		protected override bool checkConditionGesture ()
-		{
-			Hand hand = GetCurrent1Hand ();
+		protected override bool checkConditionGesture () {
+			Hand hand = GetCurrentHand ();
 			if (hand != null) {
-				if (isGrabHand (hand) && !_isHoldingBall)
+				if (isGrabHand (hand) && !isHoldingBall)
 					return true;
 			}
 
@@ -42,25 +37,21 @@ namespace TossCraft
 		}
 
 
-		void grabBall ()
-		{
+		void grabBall () {
 			//Debug.Log ("Grab");
-			_isHoldingBall = true;
+			isHoldingBall = true;
 		}
 
-		void releaseBall ()
-		{
+		void releaseBall () {
 			//Debug.Log ("Release");
-			_isHoldingBall = false;
-			CurrentHoldingObj.transform.position = _savedBallPosition;
-
+			isHoldingBall = false;
+			CurrentHoldingObj.transform.position = savedBallPosition;
 		}
 
-		void updateBall ()
-		{
+		void updateBall () {
 			bool isUpdating = false;
-			if (_isHoldingBall) {
-				Hand hand = GetCurrent1Hand ();
+			if (isHoldingBall) {
+				Hand hand = GetCurrentHand ();
 				if (hand != null) {
 					if (isGrabHand (hand)) {
 						if (CurrentHoldingObj != null) {

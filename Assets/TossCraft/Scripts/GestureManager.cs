@@ -8,92 +8,76 @@ using CustomUtils;
 
 namespace TossCraft
 {
-	public class GestureManager : MonoBehaviour
-	{
+	public class GestureManager : MonoBehaviour {
 
-		public enum GestureTypes
-		{
+		public enum GestureTypes {
 			Grab,
 			Throw
 		}
 
-		GestureTypes _currentType;
+		GestureTypes currentType;
 
-		public GestureTypes GteCurrentGestureType ()
-		{
-			return _currentType;
+		public GestureTypes GteCurrentGestureType () {
+			return currentType;
 		}
 
-		public LeapProvider _leapHandProvider;
+		public LeapProvider leapHandProvider;
 
-		public LeapProvider GetLeapHand ()
-		{
-			return _leapHandProvider;
+		public LeapProvider GetLeapHand () {
+			return leapHandProvider;
 		}
 
 		public float TimeBetween2Gestures;
 
-		Dictionary<GestureTypes, object> _listActiveGestures;
+		Dictionary<GestureTypes, object> listActiveGestures;
 
-		public Dictionary<GestureTypes, object> GetCurrentActiveGestures ()
-		{
-			return _listActiveGestures;
+		public Dictionary<GestureTypes, object> GetCurrentActiveGestures () {
+			return listActiveGestures;
 		}
 
-		GameManager _gameManager;
+		GameManager gameManager;
 
-		void Start ()
-		{
-		}
+		void Start () {}
 
-		void Update ()
-		{
-	
-		}
+		void Update () {}
 
-		public void InitGesture (GameManager manager)
-		{
-			_gameManager = manager;
+		public void InitGesture (GameManager manager) {
+			gameManager = manager;
 
-			_leapHandProvider = _gameManager.GetTransformGestureManagerBasedMode ().GetComponentInChildren<LeapProvider> ();
+			leapHandProvider = gameManager.GetTransformGestureManagerBasedMode ().GetComponentInChildren<LeapProvider> ();
 			
-			_listActiveGestures = new Dictionary<GestureTypes, object> ();
+			listActiveGestures = new Dictionary<GestureTypes, object> ();
 			foreach (Transform t in transform) {
 				if (t.GetComponent<Gesture> () != null) {
 					foreach (GestureTypes type in Enum.GetValues(typeof(GestureTypes))) {
 						if (t.name.Equals (type.ToString ()))
-							_listActiveGestures.Add (type, t.GetComponent<Gesture> () as object);
+							listActiveGestures.Add (type, t.GetComponent<Gesture> () as object);
 					}
 					t.GetComponent<Gesture> ().Init (this);
 				}
 			}
-
 		}
 
-		public bool ReceiveEvent (GestureTypes type)
-		{
-			if (_gameManager.IsReadyUI ()) {
-				_currentType = type;
-				_gameManager.UpdateUIBlockingGesture (type, TimeBetween2Gestures, UnBlockGesture);
+		public bool ReceiveEvent (GestureTypes type) {
+			if (gameManager.IsReadyUI ()) {
+				currentType = type;
+				gameManager.UpdateUIBlockingGesture (type, TimeBetween2Gestures, UnBlockGesture);
 				return true;
 			} 
 			return false;
 		}
 
-		void UnBlockGesture (GestureTypes type)
-		{
-			Gesture behavior = (Gesture)_listActiveGestures [type];
+		void UnBlockGesture (GestureTypes type) {
+			Gesture behavior = (Gesture)listActiveGestures [type];
 			behavior.UnBlockGesture ();
 		}
 
-		public void LoadingGestureProgress (GestureTypes type, float percent)
-		{
-			_gameManager.UpdateUILoadingGesture (type, percent);
+		public void LoadingGestureProgress (GestureTypes type, float percent) {
+			gameManager.UpdateUILoadingGesture (type, percent);
 		}
 
-		public GameManager.GameMode GetCurrentGameMode ()
-		{
-			return _gameManager.CurrentMode;
+		public GameManager.GameMode GetCurrentGameMode () {
+			return gameManager.CurrentMode;
 		}
 	}
 }

@@ -23,7 +23,7 @@ namespace TossCraft
 
 		protected override bool checkConditionGesture ()
 		{
-			Hand hand = GetCurrent1Hand ();
+			Hand hand = GetCurrentHand ();
 			if (hand != null) {
 				if (isPalmNormalSameDirectionWith (hand, UnityVectorExtension.ToVector3 (hand.PalmVelocity))
 				   && !isStationary (hand)) {
@@ -35,7 +35,7 @@ namespace TossCraft
 
 		void throwBall ()
 		{
-			Hand hand = GetCurrent1Hand ();
+			Hand hand = GetCurrentHand ();
 			if (hand != null) {
 				GameObject go = GameObject.Instantiate (prefabBall);
 				go.transform.position = UnityVectorExtension.ToVector3 (hand.PalmPosition);
