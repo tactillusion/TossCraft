@@ -3,10 +3,11 @@ using System.Collections;
 using Leap;
 using Leap.Unity;
 
-namespace TossCraft
-{
-	public class Grab : Gesture
-	{
+namespace TossCraft {
+
+	//TODO: The gesture is not working smoothly enough ^^
+
+	public class Grab : Gesture {
 	
 		public GameObject CurrentHoldingObj;
 

@@ -17,7 +17,7 @@ namespace TossCraft
 
 		GestureTypes currentType;
 
-		public GestureTypes GteCurrentGestureType () {
+		public GestureTypes GetCurrentGestureType () {
 			return currentType;
 		}
 

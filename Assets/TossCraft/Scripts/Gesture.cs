@@ -113,7 +113,7 @@ namespace TossCraft {
 			}
 		}
 			
-		// Should be overwritten !
+		// Must be overwritten !
 		protected virtual bool checkConditionGesture () {
 			return false;
 		}
@@ -128,6 +128,8 @@ namespace TossCraft {
 					specificEvent ();
 			}
 		}
+
+		#region Movement conditions
 
 		protected bool isMoveLeft (Hand hand) {
 			return hand.PalmVelocity.x < -deltaVelocity && !isStationary (hand);
@@ -183,6 +185,8 @@ namespace TossCraft {
 		protected bool isHandMoveForward (Hand hand) {
 			return isSameDirection (hand.PalmNormal, hand.PalmVelocity) && !isStationary (hand);
 		}
+
+		#endregion 
 
 		float deltaAngleThumb = 30;
 		// degree
