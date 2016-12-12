@@ -11,11 +11,14 @@ namespace TossCraft
 	public class UIManager : MonoBehaviour
 	{
 		public Text CurrentGestureText;
+		public Text TryCountText;
 		public Transform ListGesturePivot;
 		public GameObject prefabSliderUI;
 
 		GameManager gameManager;
 		Counter countDownSlider;
+
+		int tryCount = 0;
 
 		Dictionary<GestureManager.GestureTypes, Slider> listSliders;
 
@@ -83,6 +86,8 @@ namespace TossCraft
 			});
 
 			CurrentGestureText.text = type.ToString ();
+			tryCount++;
+			TryCountText.text = "Tries: " + tryCount;
 			Debug.Log ("Change Gesture: " + type.ToString ());
 		}
 			

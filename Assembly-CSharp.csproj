@@ -45,6 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Scripts\ShFX_EffectHandler.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Scripts\ShFX_EffectLight.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Scripts\ShFX_SoftParticleFactorModifier.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Scripts\ShFX_Variants.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\Attributes\CombinablePropertyAttribute.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\Attributes\DisableIf.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\Attributes\EnumFlags.cs" />
@@ -108,16 +113,30 @@
      <Compile Include="Assets\TossCraft\Scripts\GestureManager.cs" />
      <Compile Include="Assets\TossCraft\Scripts\Gestures\Grab.cs" />
      <Compile Include="Assets\TossCraft\Scripts\Gestures\Throw.cs" />
+     <Compile Include="Assets\TossCraft\Scripts\UI\MoveCam.cs" />
      <Compile Include="Assets\TossCraft\Scripts\UIManager.cs" />
+     <Compile Include="Assets\primitives.v1\primitives_testscene\_resources\controller\MouseLook.cs" />
+     <Compile Include="Assets\primitives.v1\primitives_testscene\_resources\failscript.cs" />
      <None Include="Assets\TossCraft\Plugins\donotdelete.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\ShapeFX Readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\TossCraft\LeapMotion\README_BEFORE_UPDATING.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AddSoft.shader" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AlphaBlendPremultiply.shader" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
      <None Include="Assets\TossCraft\LeapMotion\readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Dependencies.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Documentation\Note.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\ThresholdOverlay.shader" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\PassthroughForeground.shader" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\PassthroughBackground.shader" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle Add.shader" />
+     <None Include="Assets\JMO Assets\primitives.v1\readme.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle Multiply.shader" />
      <None Include="Assets\TossCraft\LeapMotion\Version.txt" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AlphaBlend.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

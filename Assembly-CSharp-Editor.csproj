@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_EffectHandler_Editor.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_EffectLight_Editor.cs" />
+     <Compile Include="Assets\JMO Assets\Shape FX\Editor\ShFX_Variants_Editor.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Editor\CustomEditorBase.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Editor\LeapHandControllerEditor.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Editor\LeapImageRetrieverEditor.cs" />
@@ -56,14 +59,28 @@
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\VR\Editor\EyeTypeEditor.cs" />
      <Compile Include="Assets\TossCraft\LeapMotion\Scripts\VR\Editor\LeapTemporalWarpingEditor.cs" />
      <None Include="Assets\TossCraft\Plugins\donotdelete.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\ShapeFX Readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\TossCraft\LeapMotion\README_BEFORE_UPDATING.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AddSoft.shader" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AlphaBlendPremultiply.shader" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
      <None Include="Assets\TossCraft\LeapMotion\readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Dependencies.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Documentation\Note.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\ThresholdOverlay.shader" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\PassthroughForeground.shader" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
      <None Include="Assets\TossCraft\LeapMotion\Resources\PassthroughBackground.shader" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle Add.shader" />
+     <None Include="Assets\JMO Assets\primitives.v1\readme.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle Multiply.shader" />
      <None Include="Assets\TossCraft\LeapMotion\Version.txt" />
+     <None Include="Assets\Fonts\Documentation\JazzCreateAltKeys_BubbleFont.txt" />
+     <None Include="Assets\JMO Assets\Shape FX\Shaders\CbFX Particle AlphaBlend.shader" />
+ <Reference Include="Assembly-UnityScript">
+ <HintPath>C:/Users/mkohn/Desktop/TossCraft/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
@@ -87,6 +104,9 @@
  </Reference>
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="JMOAssets">
+ <HintPath>C:/Users/mkohn/Desktop/TossCraft/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
  </Reference>
  <Reference Include="LeapCSharp.NET3.5">
  <HintPath>C:/Users/mkohn/Desktop/TossCraft/Assets/TossCraft/Plugins/LeapCSharp.NET3.5.dll</HintPath>

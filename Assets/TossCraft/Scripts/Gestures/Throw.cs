@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using Leap;
 using Leap.Unity;
@@ -8,7 +9,8 @@ namespace TossCraft {
 	public class Throw : Gesture {
 		
 		public GameObject prefabBall;
-		public float forceToAdd = 200;
+		public float forceToAdd = 100;
+		public Vector delta = new Vector (0, .1f, 0);
 
 		void Start () {
 			currentType = GestureManager.GestureTypes.Throw;
@@ -27,7 +29,7 @@ namespace TossCraft {
 			Hand hand = GetCurrentHand ();
 			if (hand != null) {
 				if (isPalmNormalSameDirectionWith (hand, UnityVectorExtension.ToVector3 (hand.PalmVelocity))
-				   && !isStationary (hand)) {
+					&& !isStationary (hand)) {
 					return true;
 				}
 			}
@@ -44,7 +46,7 @@ namespace TossCraft {
 				GameObject go = GameObject.Instantiate (prefabBall);
 				go.transform.position = UnityVectorExtension.ToVector3 (hand.PalmPosition);
 				setupGravity (go);
-				addForce (go, UnityVectorExtension.ToVector3 (hand.PalmVelocity * forceToAdd));
+				addForce (go, UnityVectorExtension.ToVector3 ((hand.PalmVelocity) * forceToAdd));
 			}
 		}
 			
