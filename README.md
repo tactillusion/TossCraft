@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/makohn/Tosscraft_GDD/master/gfx/logo.PNG?token=AMoM5zP2ITJllODaYvPYUjFUxyVv3Cekks5YTXinwA%3D%3D)
+![](https://github.com/tactillusion/Tosscraft_GDD/blob/master/gfx/logo.PNG)
 
 [![](https://img.shields.io/codeship/d6c1ddd0-16a3-0132-5f85-2e35c05e22b1.svg)]()
 [![](https://img.shields.io/badge/coverage-10%25-orange.svg)]()
